@@ -1,0 +1,40 @@
+.pessoa-container {
+    border: 1px solid #ccc;
+    padding: 30px;
+    margin: 30px;
+  }
+  
+  .botoes-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .botao-ver-mais,
+  .botao-editar,
+  .botao-excluir {
+    padding: 5px 10px;
+    background-color: #4868f9;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .botao-ver-mais:hover,
+  .botao-editar:hover,
+  .botao-excluir:hover {
+    background-color: #4868f9;
+  }
+  
+  .botao-ver-mais {
+    background-color: #4868f9; /* Green */
+  }
+  
+  .botao-editar {
+    background-color: #FFC107; /* Orange */
+  }
+  
+  .botao-excluir {
+    background-color: #f44336; /* Red */
+  }
+  
