@@ -1,5 +1,5 @@
 import Pessoa from "./Pessoa";
-import { View, FlatList, StatusBar } from "react-native";
+import { View, FlatList, StatusBar, Button } from "react-native";
 import React, { useEffect, useState } from "react";
 
 function Pessoas({ navigation }) {
@@ -8,7 +8,9 @@ function Pessoas({ navigation }) {
   useEffect(() => {
     const fetchPessoas = async () => {
       try {
-        const response = await fetch("https://visiechallenge-b51dd6dl.b4a.run/api/pessoas/");
+        const response = await fetch(
+          "https://visiechallenge-b51dd6dl.b4a.run/api/pessoas/"
+        );
         if (!response.ok) {
           throw new Error("Erro ao buscar os dados da API.");
         }
@@ -23,6 +25,10 @@ function Pessoas({ navigation }) {
     fetchPessoas();
   }, []);
 
+  const handleNavigateToCad = () => {
+    navigation.navigate("Cad");
+  };
+
   return (
     <View
       style={{
@@ -35,11 +41,15 @@ function Pessoas({ navigation }) {
       <FlatList
         data={pessoas}
         keyExtractor={(pessoa) => pessoa.id_pessoa.toString()}
-        renderItem={({ item }) => <Pessoa pessoa={item} navigation={navigation} />}
+        renderItem={({ item }) => (
+          <Pessoa pessoa={item} navigation={navigation} />
+        )}
         ItemSeparatorComponent={() => (
           <View style={{ height: 1, backgroundColor: "#f7f7f7" }} />
         )}
       />
+
+      <Button title="Adicionar Registro" onPress={handleNavigateToCad} />
 
       <StatusBar style="auto" />
     </View>
@@ -47,4 +57,3 @@ function Pessoas({ navigation }) {
 }
 
 export default Pessoas;
-
